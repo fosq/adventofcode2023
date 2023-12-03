@@ -23,18 +23,16 @@ func main() {
 
 	for _, row := range separatedInput {
 		reversedRow := reverseString(row)
+
 		match := r.FindAllString(row, -1)
 		matchReverse := revR.FindAllString(reversedRow, -1)
+
 		nbrArr := convertStringNumbersToNumbers(match)
 		reversedNbrArr := convertStringNumbersToNumbers(matchReverse)
 
 		stringNumber := nbrArr[0] + reversedNbrArr[0]
 		number, err := strconv.Atoi(stringNumber)
 		check(err)
-
-		fmt.Println(row)
-		fmt.Println(nbrArr, reversedNbrArr)
-		fmt.Println(number)
 
 		sum += number
 	}
